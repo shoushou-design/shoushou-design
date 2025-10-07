@@ -1,894 +1,0 @@
-<!DOCTYPE html>
-<html lang="ar">
-
-
-<!-- made by design epic DZ -->
-<!-- Added by design epic DZ --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by design epic DZ -->
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com/">
-    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="preconnect" href="https://fonts.googleapis.com/">
-        <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400..700&amp;display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/order.css">
-    <link rel="icon" href="images/Frame%2039.html" type="image/png">
-    <title>صفحة الطلب</title>
-</head>
-
-<body>
-    <div id="reload">
-        <div class="loader"></div>
-    </div>
-    <div class="container" dir="rtl">
-        <a href='index.html' style='text-decoration: none;
-        color: rgb(189, 7, 7); float: left; display: flex;
-        align-items: center; gap: 5px;'><span style="font-weight: bold; font-size: 20px;">رجوع</span><i
-                style=" font-size: 25px;" class="fa-solid fa-arrow-right-from-bracket"></i> </a>
-
-        <h2 style="margin-bottom: 10px;">تفاصيل المنتج</h2>
-        <div id="product-details">
-            <div class="slider-container" style="position: relative; width: 100%;">
-                <!-- الصور -->
-                <div class="images-pro" style="width: 100%;">
-                    <img class="slider-image" style="object-fit: contain; display: none;" src="#" id="product-image-1" alt="صورة المنتج 1">
-                    <img class="slider-image" style="object-fit: contain; display: none;" src="#" id="product-image-2" alt="صورة المنتج 2">
-                    <img class="slider-image" style="object-fit: contain; display: none;" src="#" id="product-image-3" alt="صورة المنتج 3">
-                    <img class="slider-image" style="object-fit: contain; display: none;" src="#" id="product-image-4" alt="صورة المنتج 4">
-                </div>
-            
-                <!-- السهم الأيسر -->
-                <a class="prev" style="position: absolute; top: 50%; left: 0; transform: translateY(-50%); font-size: 24px; cursor: pointer;">&#10095;</a>
-            
-                <!-- السهم الأيمن -->
-                <a class="next" style="position: absolute; top: 50%; right: 0; transform: translateY(-50%); font-size: 24px; cursor: pointer;">&#10094;</a>
-            </div>
-            
-            
-            
-            
-            <div class="imagePrice">
-                <p style="display: flex; align-items: center; gap: 5px;">السعر: <span id="product-price"></span></p>
-             
-            </div>
-            <div style="display: flex;
-            color: gold; width: 100%; justify-content: center; font-size: 23px; margin-bottom: 8px; gap: 4px;">
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                <i class="fa-solid fa-star"></i>
-                
-            </div>
- 
-            <p style="font-size: 18px;"><span style="font-weight: bold;">الوصف: </span><span id="product-description"></span></p>
-
-            <br>
-            <form id="orderForm" action="https://script.google.com/macros/s/AKfycby6P3IFSQJie-yC7zN7jfGlNTeCeBmhy9LdeerJ1dpKbdRW4rDaSCTrDq1PWs9oHfDGGg/exec" method="POST" name="contact-form">
-                <input type="hidden" id="total-price-input" name="السعر الإجمالي" value="">
-                <label for="Quantity">الكمية</label>
-                <div style="display: flex; align-items: center; width: 100%; gap: 5px;">
-                    <div id="decrement" style="text-decoration: none; display: flex; align-items: center; justify-content: center; background-color: #1654ff; width: 50px; height: 50px; color: aliceblue; font-size: 30px; border-radius: 5px;" href="#"><i  style="font-size: 17px;" class="fa-solid fa-minus"></i></div>
-                    <input type="number" name="الكمية" id="Quantity" value="1" pattern="[1-9][0-9]*" required readonly>
-                    <p id="error-quantity" class="error-message" style="display:none;">من فضلك أدخل الكمية</p>
-                    <div id="increment" style="text-decoration: none; display: flex; align-items: center; justify-content: center; background-color: #1654ff; width: 50px; height: 50px; color: aliceblue; font-size: 30px; border-radius: 5px;" href="#"><i style="font-size: 17px;" class="fa-solid fa-plus"></i></div>
-                </div>
-                <label style="margin-top: 5px;" for="product-name">اسم المنتج </label>
-                <input type="text" name="إسم المنتج" id="product-name" readonly>
-                <div style="display: flex; gap: 5px;">
-                <input style="font-family:  Cairo;" type="text" id="fullName" name="الإسم الكامل" placeholder="أكتب إسمك 👤" required>
-                <input style="font-family: Cairo;" type="text" id="yourNumber" name="رقم الهاتف" placeholder="رقم الهاتف 📱" required>
-
-                </div>
-                <div id="phoneWarning" class="warning">يرجى إدخال رقم هاتف صحيح</div>
-               <div style="display: flex; gap: 5px; margin-top: 5px;">
-                <select style="background: #ba1d1d25; width: 50%; font-size: 17px; font-family:  Cairo;" name="الولاية" id="location" required>
-                    <option value="" selected disabled>اختر ولايتك 🌐</option>
-                    <option value="أدرار">1. ولاية أدرار</option>
-                    <option value="الشلف">2. ولاية الشلف</option>
-                    <option value="الأغواط">3. ولاية الأغواط</option>
-                    <option value="أم البواقي">4. ولاية أم البواقي</option>
-                    <option value="باتنة">5. ولاية باتنة</option>
-                    <option value="بجاية">6. ولاية بجاية</option>
-                    <option value="بسكرة">7. ولاية بسكرة</option>
-                    <option value="بشار">8. ولاية بشار</option>
-                    <option value="البليدة">9. ولاية البليدة</option>
-                    <option value="البويرة">10. ولاية البويرة</option>
-                    <option value="تمنراست">11. ولاية تمنراست</option>
-                    <option value="تبسة">12. ولاية تبسة</option>
-                    <option value="تلمسان">13. ولاية تلمسان</option>
-                    <option value="تيارت">14. ولاية تيارت</option>
-                    <option value="تيزي وزو">15. ولاية تيزي وزو</option>
-                    <option value="الجزائر">16. ولاية الجزائر</option>
-                    <option value="الجلفة">17. ولاية الجلفة</option>
-                    <option value="جيجل">18. ولاية جيجل</option>
-                    <option value="سطيف">19. ولاية سطيف</option>
-                    <option value="سعيدة">20. ولاية سعيدة</option>
-                    <option value="سكيكدة">21. ولاية سكيكدة</option>
-                    <option value="سيدي بلعباس">22. ولاية سيدي بلعباس</option>
-                    <option value="عنابة">23. ولاية عنابة</option>
-                    <option value="قالمة">24. ولاية قالمة</option>
-                    <option value="قسنطينة">25. ولاية قسنطينة</option>
-                    <option value="المدية">26. ولاية المدية</option>
-                    <option value="مستغانم">27. ولاية مستغانم</option>
-                    <option value="المسيلة">28. ولاية المسيلة</option>
-                    <option value="معسكر">29. ولاية معسكر</option>
-                    <option value="ورقلة">30. ولاية ورقلة</option>
-                    <option value="وهران">31. ولاية وهران</option>
-                    <option value="البيض">32. ولاية البيض</option>
-                    <option value="إليزي">33. ولاية إليزي</option>
-                    <option value="برج بوعريريج">34. ولاية برج بوعريريج</option>
-                    <option value="بومرداس">35. ولاية بومرداس</option>
-                    <option value="الطارف">36. ولاية الطارف</option>
-                    <option value="تندوف">37. ولاية تندوف</option>
-                    <option value="تيسمسيلت">38. ولاية تيسمسيلت</option>
-                    <option value="الوادي">39. ولاية الوادي</option>
-                    <option value="خنشلة">40. ولاية خنشلة</option>
-                    <option value="سوق أهراس">41. ولاية سوق أهراس</option>
-                    <option value="تيبازة">42. ولاية تيبازة</option>
-                    <option value="ميلة">43. ولاية ميلة</option>
-                    <option value="عين الدفلى">44. ولاية عين الدفلى</option>
-                    <option value="النعامة">45. ولاية النعامة</option>
-                    <option value="عين تموشنت">46. ولاية عين تموشنت</option>
-                    <option value="غرداية">47. ولاية غرداية</option>
-                    <option value="غليزان">48. ولاية غليزان</option>
-                    <option value="تيميمون">49. ولاية تيميمون</option>
-                    <option value="برج باجي مختار">50. ولاية برج باجي مختار</option>
-                    <option value="أولاد جلال">51. ولاية أولاد جلال</option>
-                    <option value="بني عباس">52. ولاية بني عباس</option>
-                    <option value="إن صالح">53. ولاية إن صالح</option>
-                    <option value="عين قزام">54. ولاية عين قزام</option>
-                    <option value="تقرت">55. ولاية تقرت</option>
-                    <option value="جانت">56. ولاية جانت</option>
-                    <option value="المغير">57. ولاية المغير</option>
-                    <option value="المنيعة">58. ولاية المنيعة</option>
-                </select>
-                <select style="background: #ba1d1d25; width: 50%; font-size: 17px; font-family:  Cairo;" name="التوصيل" id="price" required>
-                    <option value="" selected disabled>اختر التوصيل 🚚</option>
-                    <option value="المنزل">المنزل</option>
-                    <option value="المكتب">المكتب</option>
-                </select>
-               </div>
-              <!-- قائمة البلدية -->
-    <select style="margin-top: 5px; font-size: 18px; font-family: Cairo;" id="بلدية" name="البلدية" required>
-        <option value="" selected disabled>اختر بلديتك 🏙️</option>
-    </select>
-               
-              <textarea  style="font-family:  Cairo; padding: 5px; font-size: 15px;  background: white; outline: none; margin-top: 5px;" placeholder="اكتب ملاحظة حول الطلب" name="ملاحظة" id="" cols="30" rows="3"></textarea>
-              <button type="submit" id="submitBtn" class="button">تأكيد الطلب</button>
-
-
-                <div class="imagePrice">
-                    <div style="display: flex; gap: 5px; font-weight: bold; ">
-                        <p>سعر الشحن : </p>
-                        <p style="color: #8a0909;" id="priceId">اختر (الولاية + التوصيل)</p>
-                    </div> 
-                    
-                </div>
-                <div class="total-price-container">
-                    <p>السعر الإجمالي : <span id="total-price">0 دج</span></p>
-                </div>
-              
-<!-- Add this overlay and spinner inside your form -->
-<div id="overlay" style="display: none;"></div>
-<div id="loading-spinner" style="display: none;">
-    <i class="fa-solid fa-spinner fa-spin"></i> جاري إرسال الطلب...
-</div>
-            </form>
-    
-<br>
-
-            <p style="color: brown;">سيتم التواصل معكم لتأكيد الطلب عبر الرقم المدخل</p>
-            <br>
-          
-            <!-- <div class="del">
-                <h3>أسعار الشحن</h3>
-                <img src="./5.jpg" alt="">
-            </div> -->
-        </div>
-        <a class="phone-btn" href="tel:0676204931"><i class="fa-solid fa-phone"></i></a>
-    </div>
-
-    <script>
-      // استخراج البيانات من عنوان الصفحة
-var urlParams = new URLSearchParams(window.location.search);
-var productName = urlParams.get('productName');
-var price = urlParams.get('price');
-var description = urlParams.get('description');
-var imageUrls = JSON.parse(urlParams.get('imageUrls')); // تحويل النص إلى مصفوفة
-
-// عرض البيانات في صفحة الطلب
-document.getElementById("product-name").value = productName;
-document.getElementById('product-price').textContent = price + " دج";
-document.getElementById('product-description').textContent = description;
-
-
-
-// عرض الصور الأربعة
-document.getElementById('product-image-1').src = imageUrls[0];
-document.getElementById('product-image-2').src = imageUrls[1];
-document.getElementById('product-image-3').src = imageUrls[2];
-document.getElementById('product-image-4').src = imageUrls[3];
-
-        const form = document.getElementById('orderForm');
-        form.addEventListener('submit', function (event) {
-            const quantity = document.getElementById('Quantity');
-            const fullName = document.getElementById('fullName');
-            const yourNumber = document.getElementById('yourNumber');
-            const state = document.getElementById('state');
-            
-
-        });
-
-        var originalPrice = parseFloat(document.getElementById("product-price").innerText);
-
-        function updatePrice() {
-            var quantity = document.getElementById("Quantity").value; // الكمية التي أدخلها المستخدم
-            var priceElement = document.getElementById("product-price"); // عنصر عرض السعر
-            var errorMessage = document.getElementById("error-quantity"); // عنصر الرسالة الخطأ
-
-            // إظهار رسالة الخطأ إذا كانت الكمية فارغة
-            if (quantity.trim() === "") {
-                errorMessage.style.display = "block";
-                priceElement.innerText = originalPrice + " دج"; // إعادة السعر إلى القيمة الأصلية
-                return;
-            } else {
-                errorMessage.style.display = "none";
-            }
-
-            // التأكد من أن القيمة المدخلة هي رقم صحيح
-            if (!isNaN(quantity) && parseInt(quantity) > 0) {
-                // تحديث قيمة السعر بحسب الكمية
-                priceElement.innerText = parseInt(quantity) * originalPrice + " دج";
-            }
-        }
-
-        document.getElementById("Quantity").addEventListener("input", updatePrice);
-
-
-
-
-
-        document.getElementById("increment").addEventListener("click", function() {
-        var quantityInput = document.getElementById("Quantity");
-        var currentValue = parseInt(quantityInput.value);
-        if (!isNaN(currentValue)) {
-            quantityInput.value = currentValue + 1;
-        }
-    });
-
-    document.getElementById("decrement").addEventListener("click", function() {
-        var quantityInput = document.getElementById("Quantity");
-        var currentValue = parseInt(quantityInput.value);
-        if (!isNaN(currentValue) && currentValue > 1) {
-            quantityInput.value = currentValue - 1;
-        }
-    });
-
-
-    function updatePrice(quantity, price) {
-        var totalPrice = price * quantity;
-        document.getElementById("product-price").textContent = totalPrice;
-    }
-
-
-//WAS ADDED
-
-// Extract product details from the URL
-var urlParams = new URLSearchParams(window.location.search);
-var productName = urlParams.get('productName');
-var productPrice = urlParams.get('price');
-var description = urlParams.get('description');
-var imageUrls = JSON.parse(urlParams.get('imageUrls'));
-
-// Set the product name and price in the form
-document.getElementById("product-name").value = productName;
-document.getElementById("product-price").value = productPrice;
-
-
-
-
-
-
-
-    document.getElementById("location").addEventListener("change", function() {
-            updatePrice();
-        });
-    
-        document.getElementById("price").addEventListener("change", function() {
-            updatePrice();
-        });
-    //WAS ADDED2
-        function updatePrice() {
-            var state = document.getElementById("location").value;
-    var deliveryType = document.getElementById("price").value;
-    var quantity = document.getElementById("Quantity").value;
-    var productPrice = parseFloat(document.getElementById("product-price").value);
-    var priceId = document.getElementById("priceId");
-    var totalPriceElement = document.getElementById("total-price");
-    var totalPriceInput = document.getElementById("total-price-input"); // Hidden input field
-    
-            // Prices for home and office delivery for each state
-            var prices = {
-    /*1*/ "أدرار": { "المنزل": 1000, "المكتب": 0 },
-    /*2*/ "الشلف": { "المنزل": 600, "المكتب": 500 },
-    /*3*/ "الأغواط": { "المنزل": 700, "المكتب": 500 },
-    /*4*/ "أم البواقي": { "المنزل": 700, "المكتب": 0 },
-    /*5*/ "باتنة": { "المنزل": 650, "المكتب": 500 },
-    /*6*/ "بجاية": { "المنزل": 700, "المكتب": 500 },
-    /*7*/ "بسكرة": { "المنزل": 650, "المكتب": 500 },
-    /*8*/ "بشار": { "المنزل": 1000, "المكتب": 700 },
-    /*9*/ "البليدة": { "المنزل": 400, "المكتب": 400 },
-    /*10*/ "البويرة": { "المنزل": 600, "المكتب": 500 },
-    /*11*/ "تمنراست": { "المنزل": 1100, "المكتب": 0 },
-    /*12*/ "تبسة": { "المنزل": 700, "المكتب": 0 },
-    /*13*/ "تلمسان": { "المنزل": 600, "المكتب": 500 },
-    /*14*/ "تيارت": { "المنزل": 700, "المكتب": 500 },
-    /*15*/ "تيزي وزو": { "المنزل": 650, "المكتب": 500 },
-    /*16*/ "الجزائر": { "المنزل": 400, "المكتب": 300 },
-    /*17*/ "الجلفة": { "المنزل": 700, "المكتب": 500 },
-    /*18*/ "جيجل": { "المنزل": 700, "المكتب": 500 },
-    /*19*/ "سطيف": { "المنزل": 600, "المكتب": 500 },
-    /*20*/ "سعيدة": { "المنزل": 600, "المكتب": 0 },
-    /*21*/ "سكيكدة": { "المنزل": 700, "المكتب": 500 },
-    /*22*/ "سيدي بلعباس": { "المنزل": 600, "المكتب": 0 },
-    /*23*/ "عنابة": { "المنزل": 700, "المكتب": 500 },
-    /*24*/ "قالمة": { "المنزل": 700, "المكتب": 0 },
-    /*25*/ "قسنطينة": { "المنزل": 700, "المكتب": 500 },
-    /*26*/ "المدية": { "المنزل": 600, "المكتب": 500 },
-    /*27*/ "مستغانم": { "المنزل": 600, "المكتب": 500 },
-    /*28*/ "المسيلة": { "المنزل": 700, "المكتب": 0 },
-    /*29*/ "معسكر": { "المنزل": 600, "المكتب": 500 },
-    /*30*/ "ورقلة": { "المنزل": 700, "المكتب": 0 },
-    /*31*/ "وهران": { "المنزل": 600, "المكتب": 500 },
-    /*32*/ "البيض": { "المنزل": 800, "المكتب": 0 },
-    /*33*/ "إليزي": { "المنزل": 1300, "المكتب": 0 },
-    /*34*/ "برج بوعريريج": { "المنزل": 600, "المكتب": 0 },
-    /*35*/ "بومرداس": { "المنزل": 550, "المكتب": 500 },
-    /*36*/ "الطارف": { "المنزل": 700, "المكتب": 0 },
-    /*37*/ "تندوف": { "المنزل": 1300, "المكتب": 0 },
-    /*38*/ "تيسمسيلت": { "المنزل": 600, "المكتب": 500 },
-    /*39*/ "الوادي": { "المنزل": 700, "المكتب": 0 },
-    /*40*/ "خنشلة": { "المنزل": 700, "المكتب": 0 },
-    /*41*/ "سوق أهراس": { "المنزل": 700, "المكتب": 0 },
-    /*42*/ "تيبازة": { "المنزل": 550, "المكتب": 0 },
-    /*43*/ "ميلة": { "المنزل": 700, "المكتب": 0 },
-    /*44*/ "عين الدفلى": { "المنزل": 600, "المكتب": 500 },
-    /*45*/ "النعامة": { "المنزل": 700, "المكتب": 0 },
-    /*46*/ "عين تموشنت": { "المنزل": 600, "المكتب": 0 },
-    /*47*/ "غرداية": { "المنزل": 700, "المكتب": 0 },
-    /*48*/ "غليزان": { "المنزل": 600, "المكتب": 500 },
-    /*49*/ "تيميمون": { "المنزل": 1000, "المكتب": 0 },
-    /*50*/ "برج باجي مختار": { "المنزل": 0, "المكتب": 0 },
-    /*51*/ "أولاد جلال": { "المنزل": 700, "المكتب": 0 },
-    /*52*/ "بني عباس": { "المنزل": 1200, "المكتب": 0 },
-    /*53*/ "إن صالح": { "المنزل": 1100, "المكتب": 0 },
-    /*54*/ "عين قزام": { "المنزل": 0, "المكتب": 0 },
-    /*55*/ "تقرت": { "المنزل": 700, "المكتب": 500 },
-    /*56*/ "جانت": { "المنزل": 1300, "المكتب": 0 },
-    /*57*/ "المغير": { "المنزل": 700, "المكتب": 0 },
-    /*58*/ "المنيعة": { "المنزل": 900, "المكتب": 0 }
-};
-
-//WAS ADDED3
-    // Check if the selected state exists in the prices object
-    if (prices.hasOwnProperty(state)) {
-        if (prices[state].hasOwnProperty(deliveryType)) {
-            var deliveryPrice = prices[state][deliveryType];
-            priceId.textContent = deliveryPrice + " دج";
-
-            // Calculate total price
-            var totalPrice = (productPrice * quantity) + deliveryPrice;
-            totalPriceElement.textContent = totalPrice + " دج";
-
-            // Update the hidden input field with the total price
-            totalPriceInput.value = totalPrice;
-        }
-    }
-}
-    </script>
-
-
-
-
-
-<script>
-    const scriptURL = 'https://script.google.com/macros/s/AKfycby6P3IFSQJie-yC7zN7jfGlNTeCeBmhy9LdeerJ1dpKbdRW4rDaSCTrDq1PWs9oHfDGGg/exec';
-    const form1 = document.forms['contact-form'];
-    const loadingSpinner = document.getElementById("loading-spinner"); // Get the loading spinner
-    const overlay = document.getElementById("overlay"); // Get the overlay (optional)
-
-    form1.addEventListener('submit', e => {
-        e.preventDefault();
-
-        // Show the overlay and loading spinner
-        if (overlay) overlay.style.display = "block"; // Show overlay if it exists
-        loadingSpinner.style.display = "flex"; // Use flex to center the spinner
-
-        fetch(scriptURL, { method: 'POST', body: new FormData(form1)})
-        .then(response => {
-            console.log("Response received:", response); // Debugging line
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
-            return response;
-        })
-        .then(response => {
-            // Hide the overlay and loading spinner on success
-            if (overlay) overlay.style.display = "none";
-            loadingSpinner.style.display = "none";
-
-            // Show success message
-            Swal.fire({
-    title: 'تم تأكيد طلبك بنجاح! 🎉',
-    text: 'شكراً لثقتك بنا! سنتصل بك في أقرب وقت لتأكيد تفاصيل الطلب.',
-    icon: 'success',
-    confirmButtonText: 'موافق',
-    className: "done",
-    timer: 8000, // Auto-close after 8 seconds
-    timerProgressBar: true, // Show a progress bar
-    willClose: () => {
-        // Reload the page after the message auto-closes
-        window.location.reload();
-    }
-            });
-        })
-        .catch(error => {
-            // Hide the overlay and loading spinner on error
-            if (overlay) overlay.style.display = "none";
-            loadingSpinner.style.display = "none";
-
-            console.error('Error!', error.message);
-
-            // Show error message
-            Swal.fire({
-                title: 'حدث خطأ! ❌',
-                text: 'تعذر إرسال الطلب. يرجى المحاولة مرة أخرى لاحقاً.',
-                icon: 'error',
-                confirmButtonText: 'حسناً',
-            });
-        });
-    });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
-
-
-
-
-
-<script>
-    const phoneInput = document.getElementById('yourNumber');
-    const submitBtn = document.getElementById('submitBtn');
-    const phoneWarning = document.getElementById('phoneWarning');
-
-    // Function to validate phone number
-    function validatePhoneNumber() {
-        const phonePattern = /^(05|06|07)\d{8}$/;
-        const isValid = phonePattern.test(phoneInput.value);
-        submitBtn.disabled = !isValid;
-        phoneWarning.style.display = isValid || phoneInput.value === '' ? 'none' : 'block';
-    }
-
-    // Event listener to trigger validation on input change
-    phoneInput.addEventListener('input', validatePhoneNumber);
-</script>
-
-
-
-
-
-<script>
-    // البيانات الخاصة بالبلديات حسب الولاية
-    const البلديات = {
-    
-    "أدرار": ["أدرار", "أولف", "تسابيت", "ريغان", "زاوية كنتة", "تيميمون", "فنوغيل", "أقبلي", "تيط", "شروين", "بودة", "طالمين", "الدبداب", "بريان", "رقان", "سالي", "تامست", "انزقام", "أولاد سعيد", "تامنطيط", "اقبلي", "تيط", "تيلولين", "أولاد أحمد تيمي", "إن زغمير", "سبع", "تامنطيط", "زاوية كنتة"],
-    
-    "الشلف": ["الشلف", "بني بوعتاب", "بني حواء", "بني راشد", "تنس", "جديوية", "حاسي بالحسن", "حرشون", "سيدي عبد الرحمان", "سيدي بوسعيد", "سيدي قاسم", "الشطية", "العيساوية", "القليعة", "المعاش", "المغية", "المشرية", "الوردانية", "بنايرية", "بريرة", "الحجاج", "أبو الحسن", "تلعصة", "تاجنة", "الكريمية", "وادي قوسين", "أولاد فارس", "الأبيض مجاجة", "المرسى", "مصدقتاوقريت", "الظهرة", "وادي الفضة", "أولاد عباس", "سيدي عكاشة", "أولاد بن عبد القادر", "عين مران", "الهرانفة", "بوقادير وادي سلي صبحة", "الزبوجة", "بوزغاية"],
-    
-    "الأغواط": [
-        "الأغواط", "قصر الحيران", "بن ناصر بن شهرة", "سيدي مخلوف", "حاسي الدلاعة", "حاسي الرمل", "عين ماضي", "تاجموت", "الخنق", "قلتة سيدي سعد", "عين سيدي علي", "البيضاء", "بريدة", "الغيشة", "الحاج المشري", "سبقاق", "تاويالة", "تاجرونة", "أفلو", "العسافية", "وادي مرة", "وادي مزي", "الحويطة", "سيدي بوزيد"
-    ],
-    
-    "أم البواقي": [
-        "أم البواقي", "عين البيضاء", "عين مليلة", "بحير شرقي", "العامرية", "سيقوس", "البلالة", "عين بابوش", "بريش", "أولاد حملة", "الضلعة", "عين كرشة", "هنشير تومغني", "الجازية", "عين الديس", "فكرينة", "سوق نعمان", "الزرق", "الفجوج", "بوغرارة", "سعودي", "أولاد زواي", "بئر الشهداء", "قصر صباحي", "وادي نيني", "مسكيانة", "عين فكرون", "الراحية", "عين الزيتون", "أولاد قاسم", "الحرميلية"
-    ],
-    
-    "باتنة": [
-        "باتنة", "غسيرة", "معافة", "مروانة", "سريانة", "منعة", "المعذر", "تازولت", "نقاوس", "القيقبة", "إينوغيسن", "عيون العصافير", "جرمة", "بيطام", "عزيل عبد القادر", "آريس", "كيمل", "تيلاطو", "عين جاسر", "أولاد سلام", "تيغرغار", "عين ياقوت", "سفيان", "فسديس", "الرحبات", "تيغانمين", "لمسان", "قصر بلزمة", "سقانة", "إشمول", "فم الطوب", "بني فضالة", "وادي الماء", "تالخمت", "بوزينة", "الشمرة", "وادي الشعبة", "تاكسلانت", "القصبات", "أولاد عوف", "بومقر", "بريكة", "الجزار", "تكوت", "عين التوتة", "حيدوسة", "ثنية العابد", "وادي الطاقة", "أولاد فاضل", "تيمقاد", "رأس العيون", "شير", "أولاد سي سليمان", "زانة البيضاء", "أمدوكال", "أولاد عمار", "الحاسي", "لازرو", "بومية", "بولهيلات", "لارباع"
-    ],
-    
-    "بجاية": [
-        "بجاية", "بوخليفة", "تيشي", "تالة حمزة", "أميزور", "تامريجت", "أوقاس", "آيت سماعيل", "تاسكريوت", "تمقرة", "آغرام", "كسيلة", "تاوريرت آغيل", "أمالو", "بوحمزة", "كنديرة", "خراطة", "فرعون", "بني جليل", "القصر", "توجة", "بوجليل", "بني مليكش", "سوق أوفلة", "شميني", "تيفرة", "تينبذار", "سيدي عياد", "تيمزريت", "سيدي عيش", "لفلاي", "أكفادو", "تيبيان", "آيت أرزين", "إيغيل علي", "فناية الماثن", "سمعون", "ذراع القايد", "مرباشة", "مسيسنة", "صدوق", "أوزلاقن", "آدكار", "شلاطة", "أقبو", "بني معوش", "درقينة", "تيزي أنبربار", "سوق الإثنين", "ملبو", "وادي غير", "تازمالت", "شميني جنان"
-    ],
-    
-    "بسكرة": [
-        "بسكرة", "ليوة", "لوطاية", "جمورة", "البرانيس", "القنطرة", "عين زعطوط", "سيدي عقبة", "شتمة", "تكوت", "الحوش", "عين الناقة", "زربية الوادي", "المزيرعة", "خنقة سيدي ناجي", "الفيض", "مشونش", "طولقة", "بوشقرون", "برج بن عزوز", "ليشانه", "فوغاله", "الغروس", "أولاد جلال", "الدوسن", "الشعيبة", "سيدي خالد", "البسباس", "راس الميعاد", "اورلال", "أوماش", "مليلي", "مخادمة", "الحاجب"
-    ],
-    
-    "بشار": [
-        "بشار", "بني عباس", "بني ونيف", "القنادسة", "بني يخلف", "كرزاز", "بوكايس", "الواتة", "عرق فراج", "إقلي", "القصابي", "تاغيث", "مشرع هواري بومدين", "لحمر", "موغل", "مريجة", "أولاد خضير", "تبلبالة", "تامترت", "تيمودي"
-    ],
-    
-    "البليدة": [
-        "البليدة", "شفة", "موزاية", "بوعرفة", "الصومعة", "قرواو", "الشبلي", "الأربعاء", "الجبابرة", "وادي العلايق", "حمام ملوان", "بوقرة", "أولاد سلامة", "بني مراد", "بن خليل", "أولاد يعيش", "بني تامو", "مفتاح", "بن صوحان", "بوعينان", "بوفاريك", "الشريعة", "العفرون", "وادي جر", "عين الرمانة"
-    ],
-    
-    "البويرة": [
-        "البويرة", "عين الترك", "أيت لعزيز", "الأخضرية", "قرومة", "معالة", "بودربالة", "بوكرام", "الزبربر", "قادرية", "عمر", "جباحية", "سوق الخميس", "المقراني", "بئر اغبالو", "الروراوة", "الخبوزية", "عين بسام", "عين العلوي", "عين الحجر", "سور الغزلان", "المعمورة", "ديرة", "ريدان", "الحاكمية", "الدشمية", "برج اخريص", "مسدور", "تاقديت", "الحجرة الزرقاء", "الهاشمية", "وادي البردي", "امشدالة", "احنيف", "الشرفة", "صحاريج", "اث منصور", "اغبالو", "بشلول", "العجيبية", "الأسنام", "اهل القصر", "اولاد راشد", "حيزر", "تاغزوت"
-    ],
-    
-    "تمنراست": [
-        "تمنراست", "ابلسة", "ادلس", "فقارة الزوى", "عين غار", "عين قزام", "عين صالح", "تاظروك", "تين زاوتين", "عين امقل"
-    ],
-    
-    "تبسة": [
-        "تبسة", "الونزة", "أم علي", "الحمامات", "الحويجبات", "الشريعة", "العقلة", "العقلة المالحة", "العوينات", "الكويف", "الماء الأبيض", "المريج", "المزرعة", "بجن", "بكارية", "بوخضرة", "بولحاف الدير", "بئر الذهب", "بئر العاتر", "بئر مقدم", "ثليجان", "سطح قنطيس", "صفصاف الوسرة", "عين الزرقة", "فركان", "قريقر", "مرسط", "نقرين"
-    ],
-    
-    "تلمسان": [
-        "تلمسان", "مغنية", "سبدو", "الرمشي", "الغزوات", "شتوان", "منصورة", "أولاد ميمون", "صبرة", "الحناية", "سيدي الجيلالي", "جبالة", "بني مستار", "هنين", "بن سكران", "بني خلاد", "بوحلو", "عين فزة", "الوادي الأخضر", "سبع شيوخ", "القور", "عين يوسف", "عمير", "عين فتاح", "عين النحالة", "عين تالوت", "باب العسة", "بني صميل", "بني سنوس", "بني وارسوس", "البويهي", "دار يغمراسن", "الفحول", "العريشة", "السواني", "سوق الثلاثاء", "زناتة", "تيرني", "بني هديل", "عين غرابة", "عين الكبيرة", "العزايل", "بني بهدل", "بني بوسعيد", "فلاوسن", "حمام بوغرارة", "مسيردة الفواقة", "ندرومة", "واد الشولي", "سيدي العبدلي", "سيدي مجاهد", "تيانت"
-    ],
-    
-    "تيارت": [
-        "تيارت", "توسنينة", "عين بوشقيف", "عين الذهب", "عين الحديد", "عين الكرمة", "عين زاريت", "بوغرة", "شهايمة", "دحموني", "جبيلات رصفة", "جيلالي بن عمر", "فايجة", "فرندة", "قرطوفة", "حمادية", "قصر الشلالة", "مادنة", "مهدية", "مشروع الصفا", "مدريسة", "مدروسة", "مغيلة", "ملاكو ندورة", "النعيمة", "واد ليلي", "ولاد جراد", "رحوية", "رشيقة سباين", "سبت", "سرغين", "سي عبد الغاني", "سيدي علي ملال", "سيدي بختي", "سيدي الحسني", "السوقر", "تاقدمت", "تخمارت", "تيدة", "زمالة الأمير عبد القادر"
-    ],
-    
-    "تيزي وزو": [
-        "تيزي وزو", "آيت عيسى ميمون", "أبي يوسف", "أزفون", "أسي يوسف", "أغريب", "أقبيل", "أقرو", "أقني قغران", "أمسوحال", "أيت أومالو", "أيت بوعدو", "أيت بومهدي", "أيت تودرت", "أيت خليلي", "أيت شفعة", "أيت قواشة", "أيت محمود", "أيت يحي", "أيت يحي موسى", "إبودرارن", "إجر", "إرجن", "إعكوران", "إفليسن", "إليلتن", "إيفرحونن", "إيفيغاء", "إيلولة أمالو", "الأربعاء نايث إيراثن", "الصوامع", "المعاتقة", "بني دوالة", "بني زمنزر", "بني زيكي", "بني عيسى", "بني يني", "بوجيمة", "بوزقن", "بوغني", "بونوح", "تادمايت", "تيرمتين", "تيزي راشد", "تيزي غنيف", "تيزي نثلاثة", "إمزذاثن", "تيقزيرت", "تيميزارت", "ذراع الميزان", "ذراع بن خدة", "زكري", "سوق الاثنين", "سيدي نعمان", "عزازقة", "عين الحمام", "عين الزاوية", "فريحة", "فريقات", "ماكودة", "مزرانة", "مشطراس", "مقلع", "مكيرة", "واسيف", "واضية", "واقنون", "يطافن"
-    ],
-    
-    "الجزائر": [
-        "الجزائر", "أولاد شبل", "أولاد فايت", "الأبيار", "الجزائر الوسطى", "الحراش", "الدار البيضاء", "الدويرة", "الرايس حميدو", "الرحمانية", "الرغاية", "السحاولة", "السويدانية", "الشراقة", "العاشور", "القبة", "القصبة", "الكاليتوس", "المحمدية", "المدنية", "المرادية", "المرسى", "المعالمة", "المقارية", "بئر توتة", "بئر خادم", "بئر مراد رايس", "باب الزوار", "باب الوادي", "بابا حسن", "باش جراح", "براقي", "برج البحري", "برج الكيفان", "بلوزداد", "بن عكنون", "بني مسوس", "بوروبة", "بوزريعة", "بولوغين", "تسالة المرجة", "جسر قسنطينة", "حسين داي", "الحمامات", "خرايسية", "دالي إبراهيم", "درارية", "الرويبة", "زرالدة", "سطاوالي", "سيدي امحمد", "سيدي موسى", "عين البنيان", "عين طاية", "قصبة الجزائر", "هراوة", "واد قريش", "وادي السمار"
-    ],
-    
-    "الجلفة": [
-        "الجلفة", "أم العظام", "الإدريسية", "الخميس", "الدويس", "الزعفران", "القديد", "القرنيني", "بن يعقوب", "بنهار", "بويرة الأحداب", "البيرين", "تعضميت", "حاسي العش", "حاسي بحبح", "حاسي فدول", "حد الصحاري", "دار الشيوخ", "دلدول", "زكار", "سد الرحال", "سلمانة", "سيدي بايزيد", "سيدي لعجال", "الشارف", "عمورة", "عين أفقه", "عين الابل", "عين الشهداء", "عين معبد", "عين وسارة", "فرزول", "فيض البطمة", "قطارة", "مجبارة", "مسعد", "مليليحة"
-    ],
-    
-    "جيجل": [
-        "جيجل", "أولاد رابح", "أولاد يحيى خدروش", "إيراقن سويسي", "الجمعة بني حبيبي", "السطارة", "الشحنة", "الشقفة", "العنصر", "العوانة", "الميلية", "برج الطهر", "الأمير عبد القادر", "بودريعة بن ياجيس", "بوراوي بلهادف", "بوسيف أولاد عسكر", "تاكسنة", "جيملة", "خيري وادي العجول", "دائرة العنصر", "دائرة الميلية", "زيامة منصورية", "سلمى بن زيادة", "سيدي عبد العزيز", "سيدي معروف", "الطاهير", "غبالة", "قاوس", "وجانة"
-    ],
-    
-    "سطيف": [
-        "سطيف", "آيت تيزي", "آيت نوال مزادة", "أولاد تبان", "أولاد ثليجان", "أولاد حميدة", "أولاد سي أحمد", "أولاد صابر", "أولاد عدوان", "الأوريسية", "الحامة", "الدهامشة", "الرصفة", "الطاية", "العلمة", "القلتة الزرقاء", "الولجة", "بئر العرش", "بئر حدادة", "بابور", "بازر الصخرة", "مزلوق", "بلاعة", "بني حسين", "بني شبانة", "بني عزيز", "بني فودة", "بني محلي", "بني ورتيلان", "بوسلام", "بوطالب", "بوعنداس", "بوقاعة", "بيضاء برج", "تاشودة", "تالة ايفاسن", "تيزي نبشار", "جميلة", "حربيل", "حمام السخنة", "حمام قرقور", "ذراع قبيلة", "رأس الماء", "سرج الغول", "صالح باي", "عموشة", "عين آزال", "عين أرنات", "عين الروى", "عين السبت", "عين الكبيرة", "عين عباسة", "عين الحجر", "عين لقراج", "عين مالح", "عين ولمان", "قصر الأبطال", "قلال", "التلة", "ماوكلان", "معاوية", "ملبونة", "واد البارد"
-    ],
-    
-    "سعيدة": [
-        "سعيدة", "أولاد براهيم", "أولاد خالد", "الحساسنة", "تيرسين", "ذوي ثابت", "سيدي أحمد", "سيدي اعمر", "سيدي بوبكر", "عين الحجر", "عين السخونة", "عين سلطان", "معمورة", "مولاي لعربي", "هونة", "يوب"
-    ],
-    
-    "سكيكدة": [
-        "سكيكدة", "أم الطوب", "أمجاز الدشيش", "أولاد أحبابة", "أولاد عطية", "الحدائق", "السبت", "الشرايع", "الكركرة", "المرسى", "الولجة بوالبلوط", "بكوش لخضر", "بن عزوز", "بني بشير", "بني زيد", "بني ولبان", "بودوخة", "بوشطاطة", "بين الويدان", "تمالوس", "جندل", "الحروش", "حمادي كرومة", "خناق مايون", "رمضان جمال", "زردازة", "زيتونة", "سيدي مزغيش", "صالح بوالشعور", "عزابة", "عين بوزيان", "عين زويت", "عين شرشار", "عين قشرة", "فلفلة", "القل", "قنواع", "لغدير", "وادي الزهور"
-    ],
-    
-    "سيدي بلعباس": [
-        "سيدي بلعباس", "الحصيبة", "الضاية", "العمارنة", "المسيد", "بئر الحمام", "بدر الدين المقراني", "بلعربي", "بن باديس", "بن عشيبة شلية", "بوجبهة البرج", "بوخنيفيس", "تاودموت", "تسالة", "تغاليمت", "تفسور", "تلاغ", "تلموني", "تنيرة", "حاسي دحو", "حاسي زهانة", "راس الماء", "رجم دموش", "زروالة", "سفيزف", "سهالة ثاورة", "سيدي إبراهيم", "سيدي حمادوش", "سيدي خالد", "سيدي دحو الزائر", "سيدي شعيب", "سيدي علي بن يوب", "سيدي علي بوسيدي", "سيدي لحسن", "سيدي يعقوب", "شيطوان بليلة", "طابية", "عين أدان", "عين البرد", "عين الثريد", "عين تندامين", "عين قادة", "لمطار", "مرحوم", "مرين", "مزاورو", "مصطفى بن إبراهيم", "مقدرة", "مولاي سليسن", "واد السبع", "واد تاوريرة", "واد سفيون"
-    ],
-    
-    "عنابة": [
-        "عنابة", "الحجار", "الحريشة", "العلمة", "برحال", "البوني", "تريعات", "سرايدي", "سيدي عمار", "الشرفة", "شطايبي", "عين الباردة", "وادي العنب"
-    ],
-    
-    "قالمة": [
-        "الدهوارة", "الركنية", "الفجوج", "برج صباط", "بلخير", "بن جراح", "بني مزلين", "بوحشانة", "بوحمدان", "بوشقوف", "بوعاطي محمود", "بومهرة أحمد", "تاملوكة", "جبالة لخميسي", "حمام المسخوطين", "حمام النبايل", "حمام بلحشاني", "حمام دباغ", "راس العقبة", "سلاوة عنونة", "عين العربي", "عين بن بيضاء", "عين رقادة", "عين صندل", "عين مخلوف", "قالمة", "قلعة بوصبع", "لخزارة", "مجاز الصفاء", "مجاز عمار", "نشماية", "هواري بومدين", "هيليوبوليس", "وادي الزناتي", "وادي الشحم", "وادي فراغة"
-    ],
-    
-    "قسنطينة": [
-        "أولاد رحمون", "ابن باديس", "ابن زياد", "الخروب", "مسعود بوجريو", "بني حميدان", "حامة بوزيان", "دائرة عين عبيد", "ديدوش مراد", "زيغود يوسف", "عين سمارة", "عين عبيد", "قسنطينة", "نهر الرمال"
-    ],
-    
-    "المدية": [
-        "أم الجليل", "أولاد إبراهيم", "أولاد بوعشرة", "أولاد دايد", "أولاد عنتر", "أولاد معرف", "أولاد هلال",
-        "بئر بن عابد", "البرواقية", "بعطة", "بن شكاو", "بني سليمان", "بوسكن", "بوشراحيل", "بوعيش", "بوعيشون", 
-        "بوغار", "تابلاط", "تافراوت", "تمزقيدة", "تيزي المهدي", "ثلاثة الدوائر", "جواب", "الحمدانية", "حناشة", 
-        "خمس جوامع", "دراق", "ذراع السمار", "الربعية", "الزبيرية", "سانق", "سدراية", "سغوان", "السواقي", 
-        "سي المحجوب", "سيدي الربيع", "سيدي دامد", "سيدي زهار", "سيدي زيان", "سيدي نعمان", "شلالة العذاورة", 
-        "شنيقل", "الشهبونية", "عزيز", "العزيزية", "العمارية", "العوينات", "العيساوية", "عين القصير", 
-        "عين بوسيف", "فج الحوضين", "قصر البخاري", "القلب الكبير", "الكاف الأخضر", "مجبر", "المدية", "مزغنة", 
-        "مغراوة", "المفاتحة", "ميهوب", "وادي حربيل", "وامري", "وزرة"
-    ],
-    
-    "مستغانم": [
-        "أولاد بوغالم", "أولاد مع الله", "الحسيان", "السوافلية", "بن عبد المالك رمضان", "بوقيراط", "تازقايت",
-        "حاسي مماش", "حجاج", "خضرة", "خير الدين", "ستيدية", "سيدي بلعطار", "سيدي علي", "سيدي لخضر", 
-        "سيرات", "الصفصاف", "الصور", "صيادة", "الطواهرية", "عشعاشة", "عين النويصي", "عين بودينار", 
-        "عين تادلس", "عين سيدي شريف", "فرناكة", "ماسرة", "مزغران", "منصورة", "نقمارية", "واد الخير"
-    ],
-    
-    "المسيلة": [
-        "أولاد دراج", "أولاد سليمان", "أولاد سيدي إبراهيم", "أولاد عدي القبالة", "مناعة", "أولاد ماضي", 
-        "أولاد منصور", "أولتام", "الحوامد", "الزرزور", "المعاريف", "المعاضيد", "الهامل", 
-        "بئر الفضة", "برهوم", "ثنية الشارة", "بلعايبة", "بن سرور", "بنزوه", "بني يلمان", 
-        "بوسعادة", "بوطي السايح", "تارمونت", "تامسة", "جبل مساعد", "حمام الضلعة", "خبانة", 
-        "خطوطي سد الجير", "الدهاهنة", "سليم", "سيدي امحمد", "سيدي عامر", "سيدي عيسى", 
-        "سيدي هجرس", "شلال", "السوامع", "عين الحجل", "عين الريش", "عين الملح", 
-        "عين الخضراء", "عين فارس", "مجدل", "محمد بوضياف", "مسيف", "المطارفة", "مقرة", "ونوغة"
-    ],
-    
-    "معسكر": [
-        "البرج", "البنيان", "السحايلية", "الشرفة", "الصحاورية", "العلايمية", "الغمري", 
-        "القعدة", "القيطنة", "المامونية", "المحمدية", "المنور", "الهاشم", 
-        "بوحنيفية", "بوهني", "تيزي", "تيغنيف", "حسين", "خلوية", 
-        "دوار الملح", "رأس عين عميروش", "زلامطة", "زهانة", "سجرارة", 
-        "سيدي بوسعيد", "سيدي عبد الجبار", "سيدي عبد المؤمن", "سيدي قادة", 
-        "عقاز", "عوف", "عين افرص", "عين فارس", "عين فراح", "عين فكان", 
-        "غروس", "غريس", "فراقيق", "فروحة", "قرجوم", "القرط", 
-        "ماقضة", "ماوسة", "مطمور", "معسكر", "مقطع دوز", "نسموط", 
-        "وادي الأبطال", "وادي تاغية"
-    ],
-    
-    "ورقلة": [
-        "الرويسات", "المنقر", "النزلة", "حاسي بن عبد الله", "حاسي مسعود", 
-        "حوض الحمراء", "سيدي خويلد", "عين البيضاء", "النقوسة", "ورقلة"
-    ],
-    
-    "وهران": [
-        "أرزيو", "العلايمية", "الكرمة", "بئر الجير", "البرية", "بطيوة", 
-        "بن فريحة", "بوتليليس", "بوسفر", "بوفاطيس", "حاسي بن عقبة", 
-        "حاسي بونيف", "حاسي مفسوخ", "دوار الملح", "السانية", "سيدي الشحمي", 
-        "سيدي بن يبقى", "سيق", "طفراوي", "العنصر", "عين البية", 
-        "عين الترك", "عين الكرمة", "قديل", "مرسى الحجاج", "المرسى الكبير", 
-        "مسرغين", "وادي تليلات", "وهران"
-    ],
-    
-    "البيض": [
-        "أربوات", "الأبيض سيدي الشيخ", "البنود", "البيض", "الخيثر", 
-        "الرقاصة", "الشلالة", "المحرة", "بريزينة", "بوسمغون", 
-        "بوعلام", "بوقطب", "توسمولين", "ستيتن", "سيدي سليمان", 
-        "سيدي طيفور", "سيدي عمر", "شقيق", "عين العراك", "الغاسول", 
-        "كاف لحمر", "كراكدة"
-    ], 
-    
-    "إليزي": [
-        "أوهانت", "إحرر", "إليزي", "برج الحواس", "برج تارات",
-        "برج عمر إدريس", "جانت", "دبداب", "عين أميناس", "معبر تينالكوم"
-    ],
-    
-    "برج بوعريريج": [
-        "أولاد براهم", "أولاد دحمان", "أولاد سيدي إبراهيم (برج بوعريريج)", "الجعافرة", 
-        "الحمادية", "العش", "العناصر", "القلة", "القليعة", "الماين", "المهير", 
-        "بئر قصد علي", "برج الغدير", "برج بوعريريج", "برج زمورة", "بلدية عين تسرة", 
-        "بليمور", "بن داود", "تاسمرت", "تفرق", "تقلعيت", "تكستار", "ثنية النصر", 
-        "حرازة", "حسناوة", "خليل", "رأس الوادي", "الرابطة", "سيدي امبارك", 
-        "عين تاغروت", "غيلاسة", "غيلاسة برج الغدير", "القصور", "مجانة", 
-        "المنصورة", "اليشير"
-    ],
-    
-    "بومرداس": [
-        "أولاد عيسى", "أولاد موسى", "أولاد هداج", "اعفير", "الأربعطاش", 
-        "الثنية", "الخروبة", "الناصرية", "برج منايل", "بغلية", 
-        "بن شود", "بني عمران", "بودواو", "بودواو البحري", "بومرداس", 
-        "تاورقة", "تجلابين", "تيمزريت", "جنات", "حمادي", 
-        "خميس الخشنة", "دلس", "زلزال زموري", "زموري", "سوق الحد", 
-        "سي مصطفى", "سيدي داود", "شعبة العامر", "عمال", "قدارة", 
-        "قورصو", "لقاطة", "يسر"
-    ],
-    
-    "الطارف": [
-            "بحيرة الطيور", "بريحان", "البسباس", "بن مهيدي", "بوثلجة",
-            "بوحجار", "بوقوس", "حمام بني صالح", "الذرعان", "رمل السوق",
-            "زريزر", "الزيتونة", "السوارخ", "الشافية", "شبيطة مختار",
-            "الشط", "الشيحاني", "الطارف", "عصفور", "عين العسل",
-            "عين الكرمة", "العيون", "القالة", "واد الزيتون"
-        ],
-    
-    "تندوف": [
-        "أم العسل", "بوبرنوس", "تندوف", "شناشن"
-       ],
-    
-       "تيسمسيلت": [
-            "أولاد بسام", "الأربعاء", "الأزهرية", "العيون", "المعاصم",
-            "الملعب", "اليوسفية", "برج الأمير عبد القادر", "برج بونعامة",
-            "بني شعيب", "بني لحسن", "بوقايد", "تملاحت", "تيسمسيلت",
-            "ثنية الحد", "خميستي", "سيدي العنتري", "سيدي بوتشنت",
-            "سيدي سليمان", "سيدي عابد", "عماري", "لرجام"
-        ],
-    
-        "الوادي": [
-            "أميه ونسة", "البياضة", "الحمادين", "الحمراية", "الدبيلة",
-            "الرباح", "الرقيبة", "الطريفاوي", "العقلة", "المقرن",
-            "النخلة", "الوادي", "بن قشة", "تغزوت", "تندلة",
-            "حاسي خليفة", "حساني عبد الكريم", "دوار الماء", "سيدي عون",
-            "طالب العربي", "عين الشوشة", "قمار", "كوينين",
-            "وادي العلندة", "ورماس", "وغلاّنة"
-        ],
-    
-        "خنشلة": [
-            "أمصارة", "أنسيغة", "أولاد رشاش", "الحامة", "الولجة",
-            "بابار", "بغاي", "بوحمامة", "تاوزيانت", "جلال",
-            "خنشلة", "خيران", "الرميلة", "ششار", "شلية",
-            "طامزة", "عين الطويلة", "قايس", "متوسة",
-            "المحمل", "يابوس"
-        ],
-    
-        "سوق أهراس": [
-            "أم العظائم", "أولاد إدريس", "أولاد مؤمن", "الحنانشة", "الراقوبة",
-            "الزوابي", "بئر بوحوش", "تاورة", "ترقالت", "تيفاش",
-            "الحدادة", "الخضارة", "خميسة", "الدريعة", "سوق أهراس",
-            "الزعرورية", "سافل الويدان", "سدراتة", "سيدي فرج",
-            "عين زانة", "عين سلطان", "مداوروش", "المراهنة",
-            "المشروحة", "وادي الكبريت", "ويلان"
-        ],
-    
-        "تيبازة": [
-            "أغبال", "الداموس", "الشعيبة", "الناظور", "بني ميلك",
-            "بو إسماعيل", "بورقيقة", "بوهارون", "تيبازة", "حجرة النص",
-            "حجوط", "حطاطبة", "حمر العين", "خميستي", "دواودة",
-            "سيدي اعمر", "سيدي راشد", "سيدي سميان", "سيدي غيلاس",
-            "شرشال", "عين تقورايت", "فوكة", "القليعة", "قوراية",
-            "لارهاط", "مراد", "مسلمون", "مناصر"
-        ],
-    
-        "ميلة": [
-            "أحمد راشدي", "أولاد خلوف", "التلاغمة", "الرواشد", "العياضي برباس",
-            "القرارم قوقة", "المشيرة", "بن يحيى عبد الرحمان", "بوحاتم", "تاجنانت",
-            "تبرقنت", "ترعي باينان", "تسالة لمطاعي", "تسدان حدادة", "حمالة",
-            "دراحي بوصلاح", "رجاص", "زغاية", "سيدي خليفة", "سيدي مروان",
-            "شلغوم العيد", "الشيقارة", "عميرة أراس", "عين البيضاء حريش", "عين التين",
-            "عين الملوك", "فرجيوة", "ميلة", "مينار زارزة", "وادي العثمانية",
-            "وادي النجاء", "وادي سقان", "يحيى بن قشة"
-        ],
-    
-        "عين الدفلى": [
-            "الحسنية", "الحسينية", "الروينة", "العبادية", "الماين", "المخاطرية",
-            "بئر ولد خليفة", "بربوش", "برج الأمير خالد", "بطحية", "بلعاص", 
-            "بن علال", "بوراشد", "بومدفع", "تاشتة زقاغة", "تسيلي", "تيبركانين",
-            "جليدة", "جمعة ولاد الشيخ", "جندل", "حمام ريغة", "خميس مليانة",
-            "زدين", "سيدي الأخضر", "طارق بن زياد", "العامرة", "عريب", "العطاف",
-            "عين الدفلى", "عين بنيان", "عين بويحيى", "عين تركي", "عين سلطان",
-            "عين لشياخ", "مليانة", "واد الشرفاء", "وادي الجمعة"
-        ],
-    
-        "النعامة": [
-            "البيوض", "القصدير", "المشرية", "تيوت", "جنين بورزق",
-            "صفيصيفة", "عسلة", "عين الصفراء", "عين بن خليل",
-            "مغرار", "مكمن بن عمار"
-        ],
-    
-        "غرداية": [
-            "العطف", "بريان", "بنورة", "حاسي الفحل", "حاسي القارة",
-            "زلفانة", "سبسب", "ضاية بن ضحوة", "القرارة", 
-            "متليلي", "المنصورة"
-        ],
-    
-        "عين تموشنت": [
-            "آغلال", "الأمير عبد القادر", "الحساسنة", "العامرية", "المالح",
-            "امسعيد", "اولاد الكيحل", "اولاد بوجمعة", "بني صاف", "بوزجار",
-            "تارقة", "تامزوغة", "حاسي الغلة", "حمام بوحجر", "رشقون",
-            "سيدي أورياش", "سيدي الصافي", "سيدي بن عدة", "سيدي بومدين",
-            "شعبة اللحم", "شنتوف", "عقب الليل", "عين الأربعاء", "عين الطلبة",
-            "عين الكيحل", "عين تموشنت", "وادي الصباح", "وادي برقش", "ولهاصة"
-        ],
-    
-        "غليزان": [
-            "أولاد سيدي الميهوب", "أولاد يعيش", "الحمادنة", "الرمكة", "القطار",
-            "القلعة", "المرجة", "المطمر", "الولجة", "بلعسل", "بن داود",
-            "بني درقن", "بني زنطيس", "جديوية", "الحاسي", "حد الشكالة",
-            "حمري", "دار بن عبد الله", "زمورة", "سوق الحد", "سيدي امحمد بن علي",
-            "سيدي خطاب", "سيدي سعادة", "سيدي لزرق", "سيدي محمد بن عودة",
-            "عمي موسى", "عين الرحمة", "عين طارق", "غليزان", "لحلاف",
-            "مازونة", "مديونة", "منداس", "واد الجمعة", "واد السلام",
-            "وادي ارهيو", "واريزان", "يلل"
-        ],
-    
-        "تيميمون": [
-            "أوقروت", "أولاد السعيد", "المطارفة", "تيميمون", "تينركوك",
-            "دلدول", "شروين", "طالمين", "قصر قدور"
-        ],
-    
-        "برج باجي مختار": [
-            "برج باجي مختار", "تيمياوين"
-        ],
-    
-        "أولاد جلال": [
-            "أولاد جلال", "البسباس", "الدوسن", "الشعيبة", 
-            "بلديات ولاية أولاد جلال", "راس الميعاد", "سيدي خالد"
-        ],
-    
-        "بني عباس": [
-            "بني عباس", "تامترت"
-        ],
-    
-        "عين صالح": [
-        "إن غار", "عين صالح", "فقارة الزاوية"
-    ],
-    
-    "عين قزام": [
-        "تين زاوتين", "عين قزام"
-    ],
-    
-    "تقرت": [
-        "البرمة", "الحجيرة", "الزاوية العابدية", "الطيبات", 
-        "العالية", "المنقر", "النزلة", "بلدة عمر", "بن ناصر", 
-        "تبسبست", "تقرت", "تماسين", "سيدي سليمان", "مقارين"
-    ],
-    
-    "جانت": [
-        "جانت", "برج الحواس"
-    ],
-    
-    "المغير": [
-        "أم الطيور", "اسطيل", "تندلة", "جامعة", 
-        "سيدي خليل", "سيدي عمران", "مرارة", "المغير"
-    ],
-    
-    "المنيعة": [
-        "المنصورة", "حاسي الفحل", "حاسي القارة", "المنيعة"
-    ]
-    
-    
-    };
-    
-    // عند اختيار الولاية
-    document.getElementById('location').addEventListener('change', function() {
-        const selectedlocation = this.value;
-        const بلديةSelect = document.getElementById('بلدية');
-    
-        // تفريغ البلديات القديمة
-        بلديةSelect.innerHTML = '<option value="" selected disabled>اختر بلديتك 🏙️</option>';
-    
-        // إضافة البلديات الجديدة بناءً على الولاية المختارة
-        if (selectedlocation) {
-            البلديات[selectedlocation].forEach(function(بلدية) {
-                const option = document.createElement('option');
-                option.value = بلدية;
-                option.text = بلدية;
-                بلديةSelect.appendChild(option);
-            });
-        }
-    });
-    </script>
-
-
-
- <script>
-    // تعريف المتغيرات
-var currentImageIndex = 0;  // الصورة الحالية التي يتم عرضها
-var images = document.getElementsByClassName('slider-image');  // جميع الصور
-
-// إظهار الصورة الأولى عند تحميل الصفحة
-images[currentImageIndex].style.display = "block";
-
-// دالة لإظهار الصورة بناءً على المؤشر الحالي
-function showImage(index) {
-    // إخفاء جميع الصور
-    for (var i = 0; i < images.length; i++) {
-        images[i].style.display = "none";
-    }
-    // إظهار الصورة المختارة
-    images[index].style.display = "block";
-}
-
-// التنقل إلى الصورة السابقة
-document.querySelector('.prev').addEventListener('click', function() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;  // تحديث المؤشر
-    showImage(currentImageIndex);  // إظهار الصورة بناءً على المؤشر الجديد
-});
-
-// التنقل إلى الصورة التالية
-document.querySelector('.next').addEventListener('click', function() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;  // تحديث المؤشر
-    showImage(currentImageIndex);  // إظهار الصورة بناءً على المؤشر الجديد
-});
-
-
-document.getElementById("orderForm").addEventListener("submit", function(event) {
-    // Update the total price before submitting the form
-    updateTotalPrice();
-});
- </script>
-</body>
-
-
-<!-- MADE BY design epic DZ -->
-</html>
-
-<!-- new code starts here -->
- 
